@@ -49,6 +49,17 @@
             box-shadow: var(--shadow);
         }
 
+        /* Stil pentru logo */
+        .logo-img {
+            max-width: 80px;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 50%;
+            background: white;
+            padding: 5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
         header h1 {
             font-size: 2.5rem;
             font-weight: 800;
@@ -198,8 +209,10 @@
 <body>
 
     <div class="wrapper">
-        <!-- Hero Header -->
+        <!-- Hero Header cu Logo -->
         <header>
+            <!-- Schimbă "logo.png" cu numele fișierului tău dacă e diferit -->
+            <img src="logo.png" alt="Logo FructSpic" class="logo-img" onerror="this.style.display='none'">
             <h1>FructSpic</h1>
             <div class="slogan">„Pauza ta cu fructe și cereale.”</div>
             <div class="sub-slogan">Snack din fructe și cereale — Propunere educațională</div>
