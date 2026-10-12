@@ -5,105 +5,187 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FructSpic - Prezentare Produs</title>
     <style>
+        /* Modern CSS Reset & Variable Definitions */
         :root {
-            --primary-color: #0056b3;
-            --bg-color: #ffffff;
-            --text-color: #333333;
-            --light-bg: #f8f9fa;
-            --border-color: #dee2e6;
+            --primary: #0a66c2;        /* A more vibrant, modern blue */
+            --primary-dark: #004182;  /* Darker blue for contrast */
+            --primary-light: #e8f3fb; /* Very light blue for subtle backgrounds */
+            --bg: #ffffff;
+            --page-bg: #f8fafe;        /* Very subtle, light gray-blue background */
+            --text-dark: #2d3436;     /* Modern dark gray for primary text */
+            --text-light: #636e72;    /* Modern gray for secondary text */
+            --border: #edf2f7;        /* Subtle border color */
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft, modern shadow */
         }
 
+        /* Basic Page Styling */
         body {
-            font-family: Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: var(--page-bg);
+            color: var(--text-dark);
             margin: 0;
             padding: 20px;
-            line-height: 1.6;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* Main Container with subtle shadow and rounding */
         .container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
-            background: var(--bg-color);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            background: var(--bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid #e1e8ed;
         }
 
-        h1, h2, h3 {
-            color: var(--primary-color);
+        /* Responsive spacing for smaller screens */
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
         }
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 45px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid var(--border);
         }
 
-        .slogan {
+        header h1 {
+            color: var(--primary);
+            font-size: 3rem;
+            margin: 0 0 10px 0;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        header .slogan {
             font-style: italic;
-            color: #555;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
+            color: var(--text-dark);
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            font-weight: 500;
         }
 
-        .sub-slogan {
-            font-size: 0.9rem;
-            color: #777;
-            margin-bottom: 30px;
+        header .sub-slogan {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
+        /* Section Styling */
         section {
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 35px;
+            padding: 20px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
         }
 
-        section:last-child {
-            border-bottom: none;
+        /* Subtle hover effect for sections to guide reading */
+        section:hover {
+            background-color: #fafcfe;
         }
 
         h2 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            margin: 0 0 15px 0;
+            color: var(--primary);
+            font-weight: 700;
+            border-bottom: 3px solid var(--border);
+            display: inline-block;
+            padding-bottom: 5px;
         }
 
         p {
-            margin: 0 0 10px 0;
+            margin: 0 0 15px 0;
+            color: var(--text-dark);
+        }
+
+        p strong {
+            color: var(--text-dark);
+            background-color: #ffeaa750; /* Subtle highlight on key words */
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+
+        /* Modernized Table Styling */
+        .table-container {
+            overflow-x: auto; /* Handle scrolling on small screens */
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--border);
+            margin-top: 25px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
-            background-color: var(--light-bg);
+            font-size: 0.95rem;
         }
 
         th, td {
-            border: 1px solid var(--border-color);
-            padding: 10px 12px;
+            padding: 15px 18px;
             text-align: left;
+            border-bottom: 1px solid var(--border);
         }
 
         th {
-            background-color: #e9ecef;
-            color: var(--primary-color);
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
         }
 
+        /* Striped rows for better readability */
+        tr:nth-child(even) td {
+            background-color: #fafcfe;
+        }
+
+        /* Final row style */
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Styling for key components */
+        tdstrong {
+            color: var(--primary-dark);
+        }
+
+        /* Improved Note Styling */
         .note {
             font-size: 0.9rem;
-            color: #666;
-            background-color: var(--light-bg);
-            padding: 12px;
-            border-left: 4px solid var(--primary-color);
-            margin-bottom: 20px;
+            color: var(--text-light);
+            background-color: var(--primary-light);
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid #dcebfa;
+            border-left: 5px solid var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .note strong {
+            color: var(--primary-dark);
+        }
+        
+        .correction-mark {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            display: block;
+            margin-top: 2px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Antet -->
+        <!-- Antet - Main Branding -->
         <header>
             <h1>FructSpic</h1>
             <div class="slogan">„Pauza ta cu fructe și cereale.”</div>
@@ -128,66 +210,69 @@
             <p>Specialistul trebuie să confirme rețeta, ordinea ingredientelor, alergenii și documentele furnizorilor.</p>
         </section>
 
-        <!-- Valori nutriționale -->
+        <!-- Valori nutriționale & Corecția Solicitată -->
         <section>
             <h2>Valori nutriționale estimate</h2>
+            
             <div class="note">
                 Datele de mai jos sunt estimări pentru conceptul educațional, nu valori validate pentru etichetarea unui produs comercial. Porția experimentală este de 50 g.
                 <br><br>
-                <strong>De verificat înainte de publicare:</strong> tabelul inițial indică 0,05 g sare la 100 g și 0,02 g la 50 g. Jumătate din 0,05 g este 0,025 g, astfel că valoarea și rotunjirea au fost armonizate la 0,03 g.
+                <strong>Observație de verificat:</strong> Tabelul inițial indica 0,05 g sare la 100 g și 0,02 g la 50 g. Jumătate din 0,05 g este 0,025 g, astfel că valoarea și rotunjirea au fost armonizate la 0,03 g pentru consistență.
             </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Componentă</th>
-                        <th>La 100 g</th>
-                        <th>La o porție de 50 g</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Energie</td>
-                        <td>1540 kJ / 365 kcal</td>
-                        <td>770 kJ / 183 kcal</td>
-                    </tr>
-                    <tr>
-                        <td>Grăsimi</td>
-                        <td>5,2 g</td>
-                        <td>2,6 g</td>
-                    </tr>
-                    <tr>
-                        <td>din care acizi grași saturați</td>
-                        <td>0,8 g</td>
-                        <td>0,4 g</td>
-                    </tr>
-                    <tr>
-                        <td>Glucide</td>
-                        <td>68 g</td>
-                        <td>34 g</td>
-                    </tr>
-                    <tr>
-                        <td>din care zaharuri</td>
-                        <td>32 g</td>
-                        <td>16 g</td>
-                    </tr>
-                    <tr>
-                        <td>Fibre</td>
-                        <td>8,4 g</td>
-                        <td>4,2 g</td>
-                    </tr>
-                    <tr>
-                        <td>Proteine</td>
-                        <td>7,6 g</td>
-                        <td>3,8 g</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Sare</strong></td>
-                        <td><strong>0,05 g</strong></td>
-                        <td><strong>0,03 g</strong> <span style="font-size: 0.8rem; color: #666;">(0,025 g rotunjit)</span></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Componentă</th>
+                            <th>La 100 g</th>
+                            <th>La o porție de 50 g</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Energie</td>
+                            <td>1540 kJ / 365 kcal</td>
+                            <td>770 kJ / 183 kcal</td>
+                        </tr>
+                        <tr>
+                            <td>Grăsimi</td>
+                            <td>5,2 g</td>
+                            <td>2,6 g</td>
+                        </tr>
+                        <tr>
+                            <td>din care acizi grași saturați</td>
+                            <td>0,8 g</td>
+                            <td>0,4 g</td>
+                        </tr>
+                        <tr>
+                            <td>Glucide</td>
+                            <td>68 g</td>
+                            <td>34 g</td>
+                        </tr>
+                        <tr>
+                            <td>din care zaharuri</td>
+                            <td>32 g</td>
+                            <td>16 g</td>
+                        </tr>
+                        <tr>
+                            <td>Fibre</td>
+                            <td>8,4 g</td>
+                            <td>4,2 g</td>
+                        </tr>
+                        <tr>
+                            <td>Proteine</td>
+                            <td>7,6 g</td>
+                            <td>3,8 g</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sare</strong></td>
+                            <td><strong>0,05 g</strong></td>
+                            <td><strong>0,03 g</strong> <span class="correction-mark">(0,025 g rotunjit)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <!-- Ideea de ambalaj -->
