@@ -5,219 +5,220 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FructSpic - Prezentare Produs</title>
     <style>
-        /* Modern CSS Reset & Variable Definitions */
         :root {
-            --primary: #0a66c2;        /* A more vibrant, modern blue */
-            --primary-dark: #004182;  /* Darker blue for contrast */
-            --primary-light: #e8f3fb; /* Very light blue for subtle backgrounds */
-            --bg: #ffffff;
-            --page-bg: #f8fafe;        /* Very subtle, light gray-blue background */
-            --text-dark: #2d3436;     /* Modern dark gray for primary text */
-            --text-light: #636e72;    /* Modern gray for secondary text */
-            --border: #edf2f7;        /* Subtle border color */
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft, modern shadow */
+            --primary: #0052cc;
+            --primary-hover: #0747a6;
+            --primary-light: #e6f0ff;
+            --text-main: #172b4d;
+            --text-muted: #5e6c84;
+            --bg-body: #f4f5f7;
+            --bg-card: #ffffff;
+            --border-color: #dfe1e6;
+            --radius: 12px;
+            --shadow: 0 10px 30px -5px rgba(9, 30, 66, 0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Basic Page Styling */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            background-color: var(--page-bg);
-            color: var(--text-dark);
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 20px;
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
+            padding: 0;
         }
 
-        /* Main Container with subtle shadow and rounding */
-        .container {
-            max-width: 850px;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .wrapper {
+            max-width: 800px;
             margin: 0 auto;
-            background: var(--bg);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            border: 1px solid #e1e8ed;
         }
 
-        /* Responsive spacing for smaller screens */
-        @media (max-width: 600px) {
-            .container {
-                padding: 25px;
-            }
-        }
-
-        /* Header Styling */
+        /* Hero Header */
         header {
+            background: linear-gradient(135deg, #0052cc 0%, #0768f8 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: var(--radius);
             text-align: center;
-            margin-bottom: 45px;
-            padding-bottom: 25px;
-            border-bottom: 2px solid var(--border);
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
         }
 
         header h1 {
-            color: var(--primary);
-            font-size: 3rem;
-            margin: 0 0 10px 0;
+            font-size: 2.5rem;
             font-weight: 800;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
         }
 
         header .slogan {
+            font-size: 1.2rem;
+            font-weight: 400;
             font-style: italic;
-            color: var(--text-dark);
-            font-size: 1.25rem;
+            opacity: 0.95;
             margin-bottom: 8px;
-            font-weight: 500;
         }
 
         header .sub-slogan {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
 
-        /* Section Styling */
-        section {
-            margin-bottom: 35px;
-            padding: 20px;
-            border-radius: 8px;
-            transition: background 0.3s ease;
+        /* Card Layout for Sections */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
         }
 
-        /* Subtle hover effect for sections to guide reading */
-        section:hover {
-            background-color: #fafcfe;
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 34px -4px rgba(9, 30, 66, 0.12);
         }
 
-        h2 {
-            font-size: 1.5rem;
-            margin: 0 0 15px 0;
+        .card h2 {
+            font-size: 1.25rem;
             color: var(--primary);
-            font-weight: 700;
-            border-bottom: 3px solid var(--border);
-            display: inline-block;
-            padding-bottom: 5px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        p {
-            margin: 0 0 15px 0;
-            color: var(--text-dark);
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
-        p strong {
-            color: var(--text-dark);
-            background-color: #ffeaa750; /* Subtle highlight on key words */
-            padding: 0 2px;
-            border-radius: 2px;
+        .card p strong {
+            color: var(--text-main);
         }
 
-        /* Modernized Table Styling */
+        /* Note Box for Verification */
+        .verification-note {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 15px 20px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .verification-note strong {
+            color: var(--primary);
+        }
+
+        /* Modern Table */
         .table-container {
-            overflow-x: auto; /* Handle scrolling on small screens */
+            overflow-x: auto;
+            margin-top: 15px;
             border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-            border: 1px solid var(--border);
-            margin-top: 25px;
+            border: 1px solid var(--border-color);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
+            text-align: left;
             font-size: 0.95rem;
         }
 
-        th, td {
-            padding: 15px 18px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-
         th {
-            background-color: var(--primary-light);
-            color: var(--primary-dark);
+            background-color: #f8fafc;
+            color: var(--text-main);
             font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
+            padding: 14px 16px;
+            border-bottom: 2px solid var(--border-color);
         }
 
-        /* Striped rows for better readability */
-        tr:nth-child(even) td {
-            background-color: #fafcfe;
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-muted);
         }
 
-        /* Final row style */
         tr:last-child td {
             border-bottom: none;
         }
 
-        /* Styling for key components */
-        tdstrong {
-            color: var(--primary-dark);
+        tr:hover td {
+            background-color: #fafbfc;
+            color: var(--text-main);
         }
 
-        /* Improved Note Styling */
-        .note {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            background-color: var(--primary-light);
-            padding: 18px;
-            border-radius: 8px;
-            border: 1px solid #dcebfa;
-            border-left: 5px solid var(--primary);
-            margin-bottom: 25px;
+        .badge {
+            display: inline-block;
+            background: #e3fcef;
+            color: #006644;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+            margin-left: 6px;
         }
 
-        .note strong {
-            color: var(--primary-dark);
-        }
-        
-        .correction-mark {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            display: block;
-            margin-top: 2px;
+        /* Responsive design */
+        @media (max-width: 600px) {
+            body {
+                padding: 15px 10px;
+            }
+            header {
+                padding: 30px 20px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            .card {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Antet - Main Branding -->
+    <div class="wrapper">
+        <!-- Hero Header -->
         <header>
             <h1>FructSpic</h1>
             <div class="slogan">„Pauza ta cu fructe și cereale.”</div>
-            <div class="sub-slogan">Snack din fructe și cereale, prezentat ca propunere educațională.</div>
+            <div class="sub-slogan">Snack din fructe și cereale — Propunere educațională</div>
         </header>
 
         <!-- Despre produs -->
-        <section>
+        <div class="card">
             <h2>Despre produs</h2>
             <p>FructSpic este un concept de baton destinat elevilor, studenților, sportivilor amatori și persoanelor cu un stil de viață activ. Rețeta teoretică propune o proporție de fructe de peste 40% și o textură moale.</p>
-        </section>
+        </div>
 
         <!-- Ingrediente propuse -->
-        <section>
+        <div class="card">
             <h2>Ingrediente propuse</h2>
-            <p>Fulgi de ovăz integral, grâu spelta (<strong>Grâul spelta</strong> (numit și <strong>alac</strong> sau <em>Triticum spelta</em>) este o specie veche de grâu, înrudită cu grâul obișnuit. Are o aromă ușor de nucă și se folosește sub formă de boabe, făină, fulgi sau paste), pastă de curmale pentru legare, fructe de pădure deshidratate, precum merișoare și afine, și miere ecologică propusă în rețetă. Lista este conceptuală, nu reprezintă eticheta unei rețete finale validate.</p>
-        </section>
+            <p>Fulgi de ovăz integral, grâu spelta (<strong>Grâul spelta</strong>, numit și <strong>alac</strong> sau <em>Triticum spelta</em>, este o specie veche de grâu, înrudită cu grâul obișnuit, având o aromă ușor de nucă și folosit sub formă de boabe, făină, fulgi sau paste), pastă de curmale pentru legare, fructe de pădure deshidratate precum merișoare și afine, și miere ecologică propusă în rețetă. Lista este conceptuală și nu reprezintă eticheta unei rețete finale validate.</p>
+        </div>
 
         <!-- Înainte de utilizarea comercială -->
-        <section>
+        <div class="card">
             <h2>Înainte de utilizarea comercială</h2>
             <p>Specialistul trebuie să confirme rețeta, ordinea ingredientelor, alergenii și documentele furnizorilor.</p>
-        </section>
+        </div>
 
-        <!-- Valori nutriționale & Corecția Solicitată -->
-        <section>
+        <!-- Valori nutriționale -->
+        <div class="card">
             <h2>Valori nutriționale estimate</h2>
-            
-            <div class="note">
-                Datele de mai jos sunt estimări pentru conceptul educațional, nu valori validate pentru etichetarea unui produs comercial. Porția experimentală este de 50 g.
-                <br><br>
-                <strong>Observație de verificat:</strong> Tabelul inițial indica 0,05 g sare la 100 g și 0,02 g la 50 g. Jumătate din 0,05 g este 0,025 g, astfel că valoarea și rotunjirea au fost armonizate la 0,03 g pentru consistență.
+            <p style="margin-bottom: 15px;">Datele de mai jos sunt estimări pentru conceptul educațional, nu valori validate pentru etichetarea unui produs comercial. Porția experimentală este de 50 g.</p>
+
+            <div class="verification-note">
+                <strong>De verificat înainte de publicare:</strong> tabelul inițial indica 0,05 g sare la 100 g și 0,02 g la 50 g. Jumătate din 0,05 g este 0,025 g, astfel valoarea și rotunjirea au fost armonizate corect la 0,03 g.
             </div>
 
             <div class="table-container">
@@ -231,61 +232,61 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Energie</td>
+                            <td><strong>Energie</strong></td>
                             <td>1540 kJ / 365 kcal</td>
                             <td>770 kJ / 183 kcal</td>
                         </tr>
                         <tr>
-                            <td>Grăsimi</td>
+                            <td><strong>Grăsimi</strong></td>
                             <td>5,2 g</td>
                             <td>2,6 g</td>
                         </tr>
                         <tr>
-                            <td>din care acizi grași saturați</td>
+                            <td>↳ din care acizi grași saturați</td>
                             <td>0,8 g</td>
                             <td>0,4 g</td>
                         </tr>
                         <tr>
-                            <td>Glucide</td>
+                            <td><strong>Glucide</strong></td>
                             <td>68 g</td>
                             <td>34 g</td>
                         </tr>
                         <tr>
-                            <td>din care zaharuri</td>
+                            <td>↳ din care zaharuri</td>
                             <td>32 g</td>
                             <td>16 g</td>
                         </tr>
                         <tr>
-                            <td>Fibre</td>
+                            <td><strong>Fibre</strong></td>
                             <td>8,4 g</td>
                             <td>4,2 g</td>
                         </tr>
                         <tr>
-                            <td>Proteine</td>
+                            <td><strong>Proteine</strong></td>
                             <td>7,6 g</td>
                             <td>3,8 g</td>
                         </tr>
                         <tr>
                             <td><strong>Sare</strong></td>
                             <td><strong>0,05 g</strong></td>
-                            <td><strong>0,03 g</strong> <span class="correction-mark">(0,025 g rotunjit)</span></td>
+                            <td><strong>0,03 g</strong> <span class="badge">armonizat</span></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
 
         <!-- Ideea de ambalaj -->
-        <section>
+        <div class="card">
             <h2>Ideea de ambalaj</h2>
             <p>Ambalaj individual alb-albastru, cu logo, informații despre ingrediente și cod QR pe verso. Materialul reciclabil este o propunere care necesită validare.</p>
-        </section>
+        </div>
 
         <!-- Transparență pentru consumator -->
-        <section>
+        <div class="card">
             <h2>Transparență pentru consumator</h2>
-            <p>Pagina digitală propusă prevede informații despre originea materiilor prime, ingredientele finale, alergeni, procesul tehnologic, condițiile de păstrare, sustenabilitate și altele.</p>
-        </section>
+            <p>Pagina digitală propusă prevede informații despre originea materiilor prime, ingredientele finale, alergeni, procesul tehnologic, condițiile de păstrare și sustenabilitate.</p>
+        </div>
     </div>
 
 </body>
